@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import TodoList from './todoApp';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(<TodoList />, document.getElementById('root'));
 

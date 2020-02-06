@@ -5,11 +5,12 @@ class TodoList extends React.Component {
         super(props);
         this.state = {
             lista: [],
-            tarea: ''
+            tarea: '',
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
+        
     }
     handleDelete(key) {
         let Lista = this.state.lista
@@ -40,18 +41,29 @@ class TodoList extends React.Component {
             
         }
     }
+    
+    
 
     
     render() {
         return(
-            <div>
-                <form key="jaja"onKeyDown={this.handleSubmit}>
-                <input onChange={this.handleChange} ></input>
-                </form>
-                <ul>
+            <div class="fullApp mt-4">
+                <h1>todos</h1>
+                <ul class="lista list-group">
+                <li class="list-group-item"><form class="input" onKeyDown={this.handleSubmit}>
+                <input id="input" type="text"placeholder="What are we doing today?" onChange={this.handleChange} ></input>
+                </form></li>
                     {this.state.lista.map((tarea, index) => (
-                        <li key={index}>{tarea}<button onClick = {() => this.handleDelete(index)}>X</button> </li>
+                        <div class="todo row">
+                            
+                                <li id="list-item"class="list-group-item col" key={index}>{tarea}</li>
+                            
+                                                                                            
+                                <button type="button" class="col-1 btn list-group-item" onClick = {() => this.handleDelete(index)}><i class="fa fas fa-times"></i></button>
+                            
+                        </div>
                     ))}
+                    <p class="paper list-group-item">{this.state.lista.length} item(s) left</p>
                 </ul>
             </div>
         )
